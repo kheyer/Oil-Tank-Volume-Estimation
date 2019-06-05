@@ -29,10 +29,7 @@ This project consists of four parts:
 # 1. Dataset Creation
 
 Dataset creation is in progress. 100 4800x4800 RGB images of tank containing industrial regions were collected from Google Earth. Each large 
-image was split into 100 512x512 tiles, for a total of 10,000 512x512 tiles. The tiles are currently in the process of being labeled with 
-bounding boxes for floating head tanks.
-
-When dataset labeling is complete, the dataset and labels will be uploaded to Kaggle.
+image was split into 100 512x512 tiles, for a total of 10,000 512x512 tiles. Image data with bounding box labels for tiles are available on [Kaggle](https://www.kaggle.com/towardsentropy/oil-storage-tanks)
 
 # 2. Tank Object Detection
 
