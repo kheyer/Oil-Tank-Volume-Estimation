@@ -33,7 +33,7 @@ image was split into 100 512x512 tiles, for a total of 10,000 512x512 tiles. Ima
 
 # 2. Tank Object Detection
 
-Once the dataset is complete, a RetinaNet model will be trained on the dataset to detect tanks in images.
+A RetinaNet object detection model was trained on the dataset of 9000 images to detect and localize tanks in images, detailed in the __Object Detection__ notebook. The model shows the ability to accurately locate tank images, but struggles to generate precise bounding boxes. This is likely due to the limited size of the dataset. 9000 images is small for object detection (compared to say 200,000+ for COCO), and many of the images don't contain tanks. A future direction would be to use a model pre-trained on COCO or another object detection dataset to see if that boosts performance for the tank identification task.
 
 # 3. Shadow Extraction and Volume Estimation
 
@@ -46,5 +46,9 @@ using morphological operations. Tank shadows are extracted from the clean image 
 
 # 4. Full Processing Pipeline
 
-Once all the pieces are in place, a pipeline will be created that will take in an image containing multiple tanks, localize the tanks, and 
-estimate tank volumes.
+The algorithms shown here present the basis of a data pipeline for estimating oil tank volumes. A full pipeline would run something like this:
+
+1. Break large satellite images into 512x512 patches
+2. Run patches through the object detection network
+3. Use bounding boxes from detected tanks to run the shadow extraction and volume estimation algorithm
+4. Reassemble image patches into the full size image with volume estimations added
